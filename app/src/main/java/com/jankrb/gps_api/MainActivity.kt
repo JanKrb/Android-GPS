@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
     private fun askForGPSPermission() {
         ActivityCompat.requestPermissions(
             this,
-            arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+            arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
             requestCodeGPSPermission
         )
     }
