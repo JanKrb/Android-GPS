@@ -82,12 +82,15 @@ class MainActivity : AppCompatActivity() {
             askForGPSPermission() // Request permission, if has no permissions
         }
 
+        var resultView: TextView = findViewById(R.id.results_text)
         fusedLocationClient.lastLocation
             .addOnSuccessListener { location->
                 if (location != null) {
-                    var resultView: TextView = findViewById(R.id.results_text)
                     resultView.text = "Result: " + location.latitude.toString() + " : " + location.longitude.toString()
                 }
+            }
+            .addOnFailureListener {
+                resultView.text = "Error: ${it.printStackTrace()}"
             }
     }
 }
